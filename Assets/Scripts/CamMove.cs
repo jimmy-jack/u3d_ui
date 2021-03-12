@@ -11,14 +11,22 @@ public class CamMove : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        offset = transform.position - player.position;
+        offset = transform.position - player.position;  //相对
+        //Debug.Log("InitOffset = " + offset);
 	}
 	
 	// Update is called once per frame
 	void LateUpdate () {
         Vector3 targetPos = player.position + player.TransformDirection(offset);
 
-        //跟随
+        if(Input.GetKey(KeyCode.Space))
+        {
+            Debug.Log("localOffset = " + offset);
+            Debug.Log("globalOffset = " + player.TransformDirection(offset));
+        }
+
+
+        //跟随(跟着移动，跟着旋转)
         transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * smoothness);
         transform.LookAt(player);
 	}
