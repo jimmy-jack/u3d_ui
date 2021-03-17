@@ -69,4 +69,12 @@ public class BenMove : MonoBehaviour {
         cctrol.enabled = anim.GetFloat(jumpHID) < 0.05;
 
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Log")
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }
