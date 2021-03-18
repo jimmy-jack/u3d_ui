@@ -29,7 +29,7 @@ public class upMove : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,IDragH
     {
         //throw new NotImplementedException();
         speed = 5;
-        offsetPos = eventData.position - (Vector2)transform.position;
+        //offsetPos = eventData.position - (Vector2)transform.position;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -41,7 +41,7 @@ public class upMove : MonoBehaviour,IPointerDownHandler,IPointerUpHandler,IDragH
     public void OnDrag(PointerEventData eventData)
     {
         //throw new NotImplementedException();
-        transform.position = eventData.position - offsetPos;
-        
+        //transform.position = eventData.position - offsetPos;
+        ;
     }
 }

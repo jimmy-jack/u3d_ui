@@ -11,12 +11,13 @@ public class buttonEvent : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 
     void Awake()
     {
-        transform.GetComponent<Button>().onClick.AddListener(OnClick);
+        //transform.GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
 	// Use this for initialization
 	void Start () {
 		
+        transform.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 	
 	// Update is called once per frame
@@ -24,6 +25,7 @@ public class buttonEvent : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 		
 	}
 
+    //AddListener方式
     void OnClick()
     {
         Debug.Log("Button was  Clicked");
@@ -33,6 +35,13 @@ public class buttonEvent : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
         }
     }
 
+    //面板拖拽方式
+    public void MouseEventTriggered()
+    {
+        Debug.Log("Mouse event was triggered.");
+    }
+
+    //实现事件接口方式
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("Button was pressed");
